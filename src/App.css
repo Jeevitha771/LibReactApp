@@ -1,0 +1,60 @@
+/* App.css */
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  height: calc(100vh - 60px);
+  padding: 20px;
+  background-color: #edeee0;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #0056b3;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #edeee0;
+  border-top: 1px solid #ddd;
+}
+
+.bottom-nav button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.bottom-nav button:hover {
+  background-color: #218838;
+}
