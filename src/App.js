@@ -17,7 +17,7 @@ const App = () => {
   const [selectedBook, setSelectedBook] = useState(null);
 
   const fetchBooks = async () => {
-    const res = await axios.get("http://localhost:5000/books");
+    const res = await axios.get("http://localhost:7210/books");
     setBooks(res.data);
   };
 
@@ -26,13 +26,13 @@ const App = () => {
       "Are you sure you want to delete this book?"
     );
     if (isConfirmed) {
-      await axios.delete(`http://localhost:5000/books/${id}`);
+      await axios.delete(`http://localhost:7210/books/${id}`);
       fetchBooks();
     }
   };
 
   const updateBook = async (id, updatedBookData) => {
-    await axios.put(`http://localhost:5000/books/${id}`, updatedBookData);
+    await axios.put(`http://localhost:7210/books/${id}`, updatedBookData);
     fetchBooks();
   };
 
