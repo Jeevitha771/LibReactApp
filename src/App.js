@@ -11,13 +11,13 @@ import BookForm from "./components/BookForm";
 import BookList from "./components/BookList";
 import "./App.css";
 import yourImage from "./librarybg.jpg";
-
+import REACT_BACKEND_URL from "./config";
 const App = () => {
   const [books, setBooks] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
 
   const fetchBooks = async () => {
-    const res = await axios.get("http://localhost:5000/books");
+    const res = await axios.get(`${REACT_BACKEND_URL}/books`);
     setBooks(res.data);
   };
 
@@ -26,13 +26,13 @@ const App = () => {
       "Are you sure you want to delete this book?"
     );
     if (isConfirmed) {
-      await axios.delete(`http://localhost:5000/books/${id}`);
+      await axios.delete(`${REACT_BACKEND_URL}/books/${id}`);
       fetchBooks();
     }
   };
 
   const updateBook = async (id, updatedBookData) => {
-    await axios.put(`http://localhost:5000/books/${id}`, updatedBookData);
+    await axios.put(`${REACT_BACKEND_URL}/books/${id}`, updatedBookData);
     fetchBooks();
   };
 

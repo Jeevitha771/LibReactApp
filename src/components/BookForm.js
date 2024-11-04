@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./BookForm.css";
 import { useNavigate } from "react-router-dom";
-
+import REACT_BACKEND_URL from "../config";
 const BookForm = ({ fetchBooks, selectedBook, updateBook }) => {
   const [BookName, setBookName] = useState("");
   const [Description, setDescription] = useState("");
@@ -46,7 +46,7 @@ const BookForm = ({ fetchBooks, selectedBook, updateBook }) => {
     if (selectedBook) {
       await updateBook(selectedBook._id, bookData);
     } else {
-      await axios.post("http://localhost:5000/books", bookData);
+      await axios.post(`${REACT_BACKEND_URL}/books`, bookData);
     }
 
     fetchBooks();
