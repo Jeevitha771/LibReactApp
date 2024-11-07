@@ -28,6 +28,7 @@
     "backend": "node server.js",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
   },
+  "proxy": "https://libreactapp-2.onrender.com",
   "eslintConfig": {
     "extends": [
       "react-app",
