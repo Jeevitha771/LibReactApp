@@ -7,8 +7,19 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+// CORS configuration
+const corsOptions = {
+  origin: "https://libreactapp-2.onrender.com",  // Allow only your frontend domain
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allow only the methods you need
+  allowedHeaders: ["Content-Type", "Authorization"], // Allow only the headers you need
+};
+
+app.use(cors(corsOptions)); // Apply CORS middleware with the options
 // Middleware
-app.use(cors());
+//app.use(cors());
+
+
+
 app.use(express.json());
 
 // MongoDB connection
