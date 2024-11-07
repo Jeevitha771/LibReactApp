@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path"); // for serving the React build
 require("dotenv").config();
 
 const app = express();
@@ -76,7 +77,13 @@ app.delete("/books/:id", async (req, res) => {
   await Book.findByIdAndDelete(req.params.id);
   res.json({ message: "Book deleted" });
 });
+// Serve static files from React build
+app.use(express.static(path.join(__dirname, 'build')));
 
+// Catch-all route for React frontend (non-API requests)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
